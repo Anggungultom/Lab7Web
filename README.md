@@ -174,14 +174,18 @@ Kemudian ubah file app/view/about.php seperti berikut.
 
 Selanjutnya refresh tampilan pada alamat http://localhost:8080/about
 
-Dan Begini Lah Hasil Akhirnya :)
+Dan Begini Lah Hasil Akhirnya untuk Praktikum 1:)
 
 
 ![image](https://github.com/user-attachments/assets/2d9e1134-1b55-4540-b9ea-7992263b796d)
 
 
 
+# Praktikum 2: Framework Lanjutan(CRUD)
 
+Untuk memulai membuat aplikasi CRUD sederhana, yang perlu disiapkan adalah database
+server menggunakan MySQL. Pastikan MySQL Server sudah dapat dijalankan melalui
+XAMPP.
 
 
 
