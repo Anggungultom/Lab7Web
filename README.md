@@ -183,9 +183,58 @@ Dan Begini Lah Hasil Akhirnya untuk Praktikum 1:)
 
 # Praktikum 2: Framework Lanjutan(CRUD)
 
-Untuk memulai membuat aplikasi CRUD sederhana, yang perlu disiapkan adalah database
-server menggunakan MySQL. Pastikan MySQL Server sudah dapat dijalankan melalui
-XAMPP.
+Repositori ini merupakan bagian dari praktikum Lab 7, yang membahas pembuatan aplikasi CRUD sederhana menggunakan **CodeIgniter 4** dan **MySQL**.
+
+🗂️ **Struktur Database**
+
+**Nama Database:**
+lab_ci4
+
+**Tabel Artikel**
+
+
+![image](https://github.com/user-attachments/assets/99baaf4c-ad7e-443d-9b27-e42573af884f)
+
+
+⚙️ **Konfigurasi Koneksi Database**
+1. Buka file .env di folder project CI4
+2. Cari bagian konfigurasi database
+   
+   ![image](https://github.com/user-attachments/assets/4a6c69f6-e615-4747-a2da-1b829d57dad7)
+
+3. Ubah dan aktifkan konfigurasi
+   - Hapus tanda # di depan baris-baris itu
+   - Ganti nilainya menjadi:
+
+     ![image](https://github.com/user-attachments/assets/3079be52-d8c6-4bee-b3dd-42e4bd692b8f)
+
+
+  *Catatan Penting*
+  
+- username = root → default XAMPP
+
+- password = (kosong) → jika kamu tidak mengatur password di XAMPP
+
+- database.default.database = lab_ci4 → nama database yang sudah kamu buat
+
+4. Simpan file .env
+
+
+   ![image](https://github.com/user-attachments/assets/a546b256-2d26-4114-95a3-656f108788c2)
+
+   ![image](https://github.com/user-attachments/assets/0c9de625-9b9e-487b-98c1-bfaf5c877074)
+
+
+![image](https://github.com/user-attachments/assets/4410c928-d46d-4a6f-8852-175f20117751)
+
+![image](https://github.com/user-attachments/assets/016ba045-ce2d-4fe7-81e2-bd6a6f069050)
+
+
+
+
+
+
+
 
 
 
