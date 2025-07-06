@@ -509,6 +509,160 @@ http://localhost:8080/user/login
 ![image](https://github.com/user-attachments/assets/06fec595-ba58-4e7b-927c-490c62db4c4b)
 
 
+# Praktikum 5 - Pagination dan Pencarian 
+
+**Tujuan**
+
+- Memahami konsep dasar Pagination.
+
+- Memahami konsep dasar Pencarian data.
+
+- Menerapkan fitur Pagination dan Pencarian pada aplikasi menggunakan Framework CodeIgniter 4.
+
+**Langkah-Langkah Praktikum**
+
+*1. Menambahkan Pagination di Controller Artikel*
+
+![image](https://github.com/user-attachments/assets/cf981dde-c4d7-4bd8-b81f-85c9953288a4)
+
+**2. Menampilkan Pagination Link di admin_index.php**
+
+*Tambahkan kode berikut setelah tabel data:*
+
+<?= $pager->links(); ?>
+
+![image](https://github.com/user-attachments/assets/cec3d017-a52d-40d8-ab2a-1a6cc868e8ac)
+
+
+![image](https://github.com/user-attachments/assets/aea019f6-9561-417f-b3ff-d1fbc20ccbc0)
+
+
+
+
+**3. Menambahkan Fitur Pencarian**
+
+Ubah kembali method admin_index seperti berikut:
+
+
+Tambahkan form pencarian di admin_index.php:
+
+
+Ubah kode pagination menjadi:
+
+![image](https://github.com/user-attachments/assets/a5086ca3-2651-46c2-8b8d-68632a1654e1)
+
+
+![image](https://github.com/user-attachments/assets/e2062ea6-f0e9-4847-bbc5-daf9fb1758b9)
+
+
+
+# Praktikum 6 – Upload File Gambar
+
+
+***Tujuan***
+
+- Memahami konsep dasar file upload pada aplikasi web.
+
+- Mampu mengimplementasikan upload gambar ke server menggunakan CodeIgniter 4.
+
+- Melanjutkan fungsionalitas aplikasi artikel dari praktikum sebelumnya.
+
+
+**Langkah-Langkah Implementasi**
+
+*1. Update Method add() di Artikel.php*
+
+Tambahkan proses upload gambar ke method add() di app/Controllers/Artikel.php:
+
+![image](https://github.com/user-attachments/assets/c0e6ff53-9833-48a6-85ec-ac33bdaf0ebc)
+
+
+*2. Tambahkan Input Gambar di Form*
+
+Edit file app/Views/artikel/form_add.php. Tambahkan field berikut:
+
+![image](https://github.com/user-attachments/assets/3ec520d0-9f02-4634-884d-20fcec728552)
+
+
+Dan ubah tag form-nya agar mendukung upload file:
+
+![image](https://github.com/user-attachments/assets/da301d1b-75e6-4177-a9d9-61592e98ac9c)
+
+
+*3. Buat Folder Tujuan Upload*
+
+Buat folder public/gambar/ jika belum ada, agar gambar bisa disimpan dengan benar:"mkdir public/gambar"
+
+Pastikan folder gambar/ memiliki permission tulis (write) agar tidak error saat upload.
+
+
+![image](https://github.com/user-attachments/assets/f4bd5258-cae8-4a1e-8422-364d3e533db5)
+
+
+# Praktikum 7 - Relasi Tabel dan Query Builder
+
+
+**Tujuan**
+
+- Memahami konsep relasi antar tabel (One-to-Many).
+
+- Mengimplementasikan foreign key dalam database.
+
+- Melakukan join antar tabel menggunakan Query Builder di CodeIgniter 4.
+
+- Menampilkan data yang saling terhubung dari tabel relasi di tampilan (View).
+
+***Langkah-Langkah Implementasi***
+
+*1. Membuat Tabel kategori*
+
+![image](https://github.com/user-attachments/assets/64a07973-1c94-4cf6-b893-a56ed3e15b6f)
+
+*2. Menambahkan Foreign Key di Tabel artikel*
+
+![image](https://github.com/user-attachments/assets/08ee4a4f-6278-4406-80db-5edef49c15fc)
+
+![image](https://github.com/user-attachments/assets/344be1f0-b188-4c07-9ff7-af517dac8fbb)
+
+
+
+*3. Model KategoriModel*
+
+![image](https://github.com/user-attachments/assets/df4e1b10-558e-42f9-898a-c266340c3884)
+
+
+*4. Modifikasi ArtikelModel*
+
+Menambahkan method untuk join dengan tabel kategori:
+
+![image](https://github.com/user-attachments/assets/a7658d64-ebb1-4cde-83ce-38468941d59c)
+
+
+*5. Update Artikel.php Controller*
+
+- Menggunakan method getArtikelDenganKategori().
+
+- Menambahkan filter pencarian dan filter kategori.
+
+- Mengimplementasikan fitur tambah, edit, dan hapus artikel beserta kategorinya.
+
+*6. Perubahan di View*
+
+- index.php: Menampilkan artikel beserta nama kategori.
+
+- admin_index.php: Filter berdasarkan kategori, pencarian, dan pagination.
+
+- form_add.php & form_edit.php: Dropdown pilihan kategori saat tambah/edit artikel.
+
+
+![image](https://github.com/user-attachments/assets/6d372d7d-ec2b-4404-8c1f-8ca1ef6b2e51)
+
+
+
+
+
+
+
 
 
 
