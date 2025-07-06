@@ -185,10 +185,55 @@ Dan Begini Lah Hasil Akhirnya untuk Praktikum 1:)
 
 Repositori ini merupakan bagian dari praktikum Lab 7, yang membahas pembuatan aplikasi CRUD sederhana menggunakan **CodeIgniter 4** dan **MySQL**.
 
-🗂️ **Struktur Database**
 
-**Nama Database:**
-lab_ci4
+
+**Fitur Utama:**
+
+    - view($slug)
+    Menampilkan detail artikel berdasarkan slug URL. Digunakan untuk halaman publik.
+
+    - admin_index()
+    Menampilkan seluruh data artikel di halaman admin. Ini adalah dashboard utama admin.
+
+    - add()
+    Menyediakan form tambah artikel, validasi input, dan menyimpan data baru ke database.
+
+    - edit($id)
+    Menyediakan form edit artikel dan menangani proses update data ke database berdasarkan ID artikel.
+
+    - delete($id)
+    Menghapus data artikel dari database berdasarkan ID.
+
+
+
+ **Struktur Terkait:**
+
+    Model: app/Models/ArtikelModel.php
+    Menghubungkan controller dengan database, serta mendefinisikan field yang boleh diisi (allowedFields).
+
+    View:
+
+        app/Views/artikel/admin_index.php – Daftar semua artikel
+
+        app/Views/artikel/form_add.php – Form tambah artikel
+
+        app/Views/artikel/form_edit.php – Form edit artikel
+
+        app/Views/artikel/detail.php – Tampilan detail artikel
+
+    Routing:
+    Telah ditambahkan group routing untuk admin pada app/Config/Routes.php:
+
+    #$routes->group('admin', function($routes) {
+    $routes->get('artikel', 'Artikel::admin_index');
+    $routes->add('artikel/add', 'Artikel::add');
+    $routes->add('artikel/edit/(:any)', 'Artikel::edit/$1');
+    $routes->get('artikel/delete/(:any)', 'Artikel::delete/$1');
+    });
+
+
+
+
 
 **Tabel Artikel**
 
@@ -220,24 +265,248 @@ lab_ci4
 4. Simpan file .env
 
 
+   
+
+# Tampilan Aplikasi Portal Berita
+**Halaman Daftar Artikel (User)**
+
    ![image](https://github.com/user-attachments/assets/a546b256-2d26-4114-95a3-656f108788c2)
+
+
+*Penjelasan:*
+
+- Menampilkan semua artikel yang telah dipublikasikan.
+
+- Setiap judul artikel dapat diklik untuk melihat detailnya.
+
+
+
+**Halaman About (User)**
 
    ![image](https://github.com/user-attachments/assets/0c9de625-9b9e-487b-98c1-bfaf5c877074)
 
+ *Penjelasan:*
+
+- Halaman statis yang menjelaskan informasi tentang portal berita.
+
+
+**Halaman Edit Artikel (Admin)**
 
 ![image](https://github.com/user-attachments/assets/4410c928-d46d-4a6f-8852-175f20117751)
 
+
+*Penjelasan:*
+
+- Admin dapat memperbarui artikel yang sudah dibuat.
+
+- Form terdiri dari input judul dan isi.
+
+
+**Halaman Tambah Artikel (Admin)**
+
 ![image](https://github.com/user-attachments/assets/016ba045-ce2d-4fe7-81e2-bd6a6f069050)
 
+*Penjelasan:*
+
+- Admin dapat membuat artikel baru dengan input: judul, isi, upload gambar, dan memilih status (published/draft).
+
+
+
+**Tambah Artikel**
+
+Berikut tampilan halaman untuk menambah artikel baru:
+
+
+![image](https://github.com/user-attachments/assets/cd4297e0-287a-472e-8d46-dd61e612e710)
+
+
+Keterangan:
+
+- Admin dapat mengisi judul, isi, upload gambar, dan memilih status.
+
+- Gambar akan disimpan dan artikel masuk ke database saat tombol Simpan ditekan.
 
 
 
 
 
+**Edit Artikel**
+
+Gambar berikut menunjukkan tampilan halaman edit artikel pada portal admin:
+
+
+
+![image](https://github.com/user-attachments/assets/6c6656a8-1725-45e2-bbd6-96bea3e15962)
+
+
+Keterangan:
+
+- Admin dapat mengubah judul dan isi artikel.
+
+- Setelah klik tombol Kirim, data akan diperbarui di database.
+
+
+**Cara Akses:**
+
+    - Halaman admin: localhost:8080/admin/artikel
+
+    - Tambah artikel: localhost:8080/admin/artikel/add
+
+    - Edit artikel: localhost:8080/admin/artikel/edit/1
+
+    - Detail publik: localhost:8080/artikel/artikel-pertama
 
 
 
 
+# Penjelasan Praktikum 3: View Layout dan View Cell
+
+
+**1. Tujuan Praktikum**
+
+Praktikum ini bertujuan untuk:
+
+- Menggunakan View Layout di CodeIgniter 4 untuk membuat kerangka halaman utama.
+
+- Menerapkan View Cell untuk menampilkan komponen UI secara modular (seperti widget artikel terbaru di sidebar).
+
+
+**2. Membuat Layout Utama**
+
+*Langkah:*
+
+- Buat folder layout di app/Views/
+
+- Buat file main.php
+
+![image](https://github.com/user-attachments/assets/e51e259f-888d-40f2-914b-e1abf9212052)
+
+
+**3. Mengubah View Home agar Gunakan Layout**
+*File*: app/Views/home.php
+
+![image](https://github.com/user-attachments/assets/bc736af3-ebd1-4b95-9c3a-7f95924c7536)
+
+
+**4. Membuat View Cell: ArtikelTerkini**
+
+*Langkah:*
+
+- Buat folder app/Cells/
+
+- Buat file ArtikelTerkini.php
+
+![image](https://github.com/user-attachments/assets/794dd012-b887-475e-9643-f50e697936e2)
+
+
+
+**5. Buat View Cell Template**
+
+*Folder*: app/Views/components/
+
+*File*: artikel_terkini.php
+
+![image](https://github.com/user-attachments/assets/7b2ffb18-37c8-4a51-ac4e-e0401e2a388d)
+
+
+**Hasil Akhir Praktikum 3**
+![image](https://github.com/user-attachments/assets/c162ede6-e2e0-42ca-9bfa-a6f13c902a89)
+
+
+# Praktikum 4 - Modul Login dan Auth dengan CodeIgniter 4
+
+ yang berfokus pada pembuatan sistem login sederhana dengan CodeIgniter 4 menggunakan fitur Auth, Filter, dan Session.
+
+
+ **Tujuan Praktikum**
+ 
+- Memahami konsep dasar authentication dan filter di CodeIgniter 4
+
+- Menerapkan sistem login sederhana menggunakan session
+
+- Membatasi akses admin menggunakan Auth Filter
+
+
+***Langkah-langkah Praktikum***
+
+**1. Membuat Tabel user**
+
+![image](https://github.com/user-attachments/assets/1967f28a-f62f-4456-8107-391805ae26b6)
+
+
+**2. Membuat Model UserModel.php**
+
+*Lokasi*: app/Models/UserModel.php
+
+![image](https://github.com/user-attachments/assets/5d48df21-e57c-409c-9937-0c99b58bc1ba)
+
+**3. Membuat Controller User.php**
+
+*Lokasi*: app/Controllers/User.php
+
+![image](https://github.com/user-attachments/assets/94b9730e-6486-49c8-a16c-56ed33fd3c74)
+
+![image](https://github.com/user-attachments/assets/c8d595ad-e380-45b9-a875-a7771f8aa561)
+
+
+**4. Membuat View Login**
+
+*Lokasi*: app/Views/user/login.php
+
+![image](https://github.com/user-attachments/assets/745e45e8-a747-488f-9dff-a8c93165e075)
+
+
+**5. Membuat Database Seeder**
+
+- *Jalankan perintah:*
+
+php spark make:seeder UserSeeder
+
+- *Isi file app/Database/Seeds/UserSeeder.php:*
+
+  ![image](https://github.com/user-attachments/assets/a6b0143e-0c94-4e5e-84de-a9c7b81eeba3)
+
+- *Jalankan seedernya:*
+
+php spark db:seed UserSeeder
+
+
+
+![image](https://github.com/user-attachments/assets/c08e1e80-fcc4-4339-a060-28d874ebc068)
+
+
+**6. Membuat Filter Auth**
+
+*Lokasi*: app/Filters/Auth.php
+
+![image](https://github.com/user-attachments/assets/051e3876-54d9-4c48-ac6b-7004b3ab7741)
+
+**7. Daftarkan Filter di Config/Filters.php**
+
+*Tambahkan:*
+
+'auth' => App\Filters\Auth::class,
+
+
+**8. Gunakan Filter di Routing**
+
+Buka app/Config/Routes.php dan tambahkan:
+
+![image](https://github.com/user-attachments/assets/c9adb165-fc87-4e51-89f7-da6be8171916)
+
+
+**Sekarang Jalankan dan Uji**
+
+- *Jalankan:*
+
+php spark serve
+
+-*Akses:*
+
+http://localhost:8080/user/login
+
+
+![image](https://github.com/user-attachments/assets/06fec595-ba58-4e7b-927c-490c62db4c4b)
 
 
 
