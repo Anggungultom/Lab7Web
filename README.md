@@ -658,6 +658,300 @@ Menambahkan method untuk join dengan tabel kategori:
 ![image](https://github.com/user-attachments/assets/6d372d7d-ec2b-4404-8c1f-8ca1ef6b2e51)
 
 
+# Praktikum 8 - AJAX (Asynchronous JavaScript and XML)
+
+**Tujuan Praktikum:**
+
+- Memahami konsep dasar AJAX dan cara kerjanya.
+
+- Mengimplementasikan AJAX di CodeIgniter 4 untuk pengambilan dan penghapusan data.
+
+- Melatih kemampuan debugging dan interaktivitas aplikasi web.
+
+
+
+***Apa itu AJAX?***
+
+  AJAX adalah teknik yang memungkinkan halaman web untuk mengambil atau mengirim data ke server tanpa melakukan reload halaman secara keseluruhan. Hal ini menjadikan web terasa lebih dinamis, cepat, dan interaktif.
+
+
+**Cara Kerja AJAX:**
+
+1. Event Trigger: Pengguna menekan tombol atau mengetik.
+
+2. Request Dikirim: JavaScript (biasanya via jQuery) mengirimkan request (GET/POST) ke server.
+
+3. Server Memproses: Server menjalankan proses (ambil data, delete, dll).
+
+4. Respon Diterima: Server mengembalikan data (biasanya format JSON).
+
+5. Update Tampilan: JavaScript mengupdate bagian halaman tanpa reload.
+
+
+**Langkah Praktikum:**
+
+*1. Menambahkan jQuery*
+
+Unduh jQuery dan simpan di folder:
+
+![image](https://github.com/user-attachments/assets/7315f5b3-d282-402b-9c6c-f19ac01409e6)
+
+
+*2. Membuat Controller AjaxController*
+
+![image](https://github.com/user-attachments/assets/36199014-0c9b-45c3-963a-faa4b358765d)
+
+
+ *3. Membuat View ajax/index.php*
+ 
+Berisi tampilan tabel + AJAX load:
+
+![image](https://github.com/user-attachments/assets/4c529212-64a3-44cd-84a1-49ff47023d3e)
+
+![image](https://github.com/user-attachments/assets/1d03e1e8-d0f3-4ad4-af4d-a836cee709dc)
+
+![image](https://github.com/user-attachments/assets/91556b67-7eb8-4a3a-a4ab-c16c919b8591)
+
+
+**Hasil Uji Coba**
+
+- Data dimuat otomatis via AJAX
+- Tombol hapus mengirim request DELETE tanpa reload halaman
+- Tabel langsung terupdate setelah hapus data
+
+![image](https://github.com/user-attachments/assets/eaded62b-e950-4603-a6b4-316a8f66f383)
+
+
+#  Praktikum 9 – Implementasi AJAX Pagination dan Search 
+
+
+**Tujuan**
+
+- Memahami konsep dasar penggunaan AJAX untuk fitur pencarian dan paginasi.
+
+- Mengimplementasikan AJAX agar tampilan halaman tidak melakukan reload penuh.
+
+- Meningkatkan performa dan user experience (UX) aplikasi web.
+
+
+ **Langkah Implementasi**
+ 
+1. Modifikasi Controller: Artikel::admin_index()
+
+    ![image](https://github.com/user-attachments/assets/fcac21bc-c144-445e-b538-d0cc46e8e68c)
+
+    - Mengembalikan data dalam format JSON jika request berasal dari AJAX.
+
+    - Jika bukan AJAX, tampilkan view seperti biasa.
+
+2. Ubah View admin_index.php
+
+    ![image](https://github.com/user-attachments/assets/c8bfac64-ccc2-4ab0-9f17-b8f5deb20cf0)
+
+    Semua data tabel artikel dan navigasi pagination akan di-render melalui jQuery.
+
+
+3. Tambahkan Script AJAX (jQuery)
+
+    ![image](https://github.com/user-attachments/assets/c5cef2b8-c90a-458c-9881-4c91a1a2e279)
+
+***Hasil Uji Coba***
+
+![image](https://github.com/user-attachments/assets/84c873a0-3762-4933-b017-126473ee9df4)
+
+
+# Praktikum 10: REST API
+
+**Tujuan Praktikum**
+
+  - Memahami konsep dasar API dan RESTful.
+
+  - Mampu membuat REST API menggunakan CodeIgniter 4.
+
+  - Mampu menghubungkan aplikasi dengan REST Client seperti Postman untuk pengujian
+
+
+***Apa itu REST API?***
+
+REST (Representational State Transfer) adalah arsitektur standar dalam pengembangan API (Application Programming Interface). API berfungsi sebagai jembatan antara dua aplikasi agar bisa saling bertukar data.
+
+
+***Analogi REST API:***
+
+REST API seperti daftar menu restoran. Client (pelanggan) hanya dapat memesan apa yang tersedia, meskipun server (koki) bisa memasak berbagai hal lainnya.
+
+*REST API:*
+
+  - Menggunakan HTTP request seperti GET, POST, PUT, dan DELETE.
+
+  - Biasanya menggunakan format data JSON.
+
+  - Memudahkan integrasi antar-platform (contoh: backend PHP ↔ frontend Vue.js).
+
+**Tools yang Digunakan**
+
+  1. Text Editor: Visual Studio Code (VSCode)
+
+  2. Web Server: Apache (XAMPP/htdocs)
+
+  3. REST Client: Postman
+
+  4. Framework: CodeIgniter 4
+
+
+**Langkah-langkah Praktikum**
+
+1. Download postman : https://www.postman.com/downloads/
+2.  Membuat REST Controller
+   
+   Buat file Post.php di app/Controllers/:
+
+   ![image](https://github.com/user-attachments/assets/59ac081d-af93-4995-bf68-dde53e0c6480)
+  ![image](https://github.com/user-attachments/assets/e8bdbfd1-2f3d-4ff4-8ceb-c367f08b112c)
+  ![image](https://github.com/user-attachments/assets/54141fd6-4d05-456f-ad98-089958f042d0)
+
+3.  Konfigurasi Routing
+   
+Edit file app/Config/Routes.php:
+
+  ![image](https://github.com/user-attachments/assets/06f8db27-5af4-44a3-ab71-7a747edeac2b)
+
+  Untuk mengecek route nya jalankan perintah berikut:
+  
+  *php spark routes*
+
+  Selanjutnya akan muncul daftar route yang telah dibuat.
+
+![image](https://github.com/user-attachments/assets/a020b124-ff74-4a0f-94f1-04e456d0c98b)
+
+**Testing REST API CodeIgniter**
+  Buka aplikasi postman dan pilih create new → HTTP Request
+  
+![image](https://github.com/user-attachments/assets/628fd9c0-10b6-4ea6-a6ba-f1df39f7af93)
+
+
+**Menampilkan Semua Data**
+
+Pilih method GET dan masukkan URL berikut:
+http://localhost:8080/post
+
+Lalu, klik Send. Jika hasil test menampilkan semua data artikel dari database, maka pengujian
+
+![image](https://github.com/user-attachments/assets/23307201-ffb0-41c4-8fbe-e0e93f1988bf)
+
+**Menampilkan Data Spesifik**
+
+Masih menggunakan method GET, hanya perlu menambahkan ID artikel di belakang URL
+seperti ini:
+
+http://localhost:8080/post/5 (Bebas artikel mana yg mau di tampilkan)
+
+Selanjutnya, klik Send. Request tersebut akan menampilkan data artikel yang memiliki ID
+nomor 5 di database.
+
+![image](https://github.com/user-attachments/assets/564a4f3d-1aad-4f78-81f5-cb7d3f586a8e)
+
+**Mengubah Data**
+
+Untuk mengubah data, silakan ganti method menjadi PUT. Kemudian, masukkan URL artikel
+yang ingin diubah. Misalnya, ingin mengubah data artikel dengan ID nomor 5, maka masukkan
+URL berikut:
+
+http://localhost:8080/post/5
+
+Selanjutnya, pilih tab Body. Kemudian, pilih x-www-form-uriencoded. Masukkan nama
+atribut tabel pada kolom KEY dan nilai data yang baru pada kolom VALUE. Kalau sudah,
+klik Send
+
+![image](https://github.com/user-attachments/assets/71fa38ef-e9fb-4a2b-9328-350db32697fe)
+
+**Menambahkan Data**
+
+Anda perlu menggunakan method POST untuk menambahkan data baru ke database.
+Kemudian, masukkan URL berikut:
+
+http://localhost:8080/post
+
+Pilih tab Body, lalu pilih x-www-form-uriencoded. Masukkan atribut tabel pada kolom KEY
+dan nilai data baru di kolom VALUE. Jangan lupa, klik Send
+
+![image](https://github.com/user-attachments/assets/ed6e1507-5479-4bcd-a681-20c9f2514154)
+
+**Menghapus Data**
+
+Pilih method DELETE untuk menghapus data. Lalu, masukkan URL spesifik data mana yang
+ingin di hapus. Misalnya, ingin menghapus data nomor 3, maka URL-nya seperti ini:
+
+http://localhost:8080/post/3
+
+Langsung saja klik Send, maka akan mendapatkan pesan bahwa data telah berhasil dihapus dari
+database
+
+![image](https://github.com/user-attachments/assets/58b42f9e-c5b1-4bc8-8311-70087016989d)
+
+
+# Praktikum 11 - VueJS 3
+
+ **Tujuan**
+ 
+  1. Memahami konsep dasar REST API dan integrasi frontend-backend.
+
+  2. Mampu membuat aplikasi frontend menggunakan VueJS 3.
+
+  3. Mampu menghubungkan frontend ke backend CodeIgniter 4 REST API.
+
+
+**Teknologi yang Digunakan**
+
+  - VueJS 3 (via CDN)
+
+  - Axios untuk komunikasi API (GET, POST, PUT, DELETE)
+
+  - HTML + CSS untuk struktur dan tampilan
+
+  - CodeIgniter 4 sebagai backend REST API
+
+**Struktur Folder**
+![image](https://github.com/user-attachments/assets/67718543-7ba5-4127-8d0c-e35dfc722b8f)
+
+**Persiapan**
+
+1. Buat folder lab8_vuejs di dalam htdocs atau direktori root server lokal.
+
+2. Tambahkan VueJS & Axios dari CDN ke dalam file index.html:
+
+![image](https://github.com/user-attachments/assets/93d1e18c-9568-4cad-acd4-9c70dfeda85e)
+
+***index.html***
+
+![image](https://github.com/user-attachments/assets/e5cfb602-9f24-4c57-91a0-02bc62ad1daa)
+![image](https://github.com/user-attachments/assets/dd8af383-6a40-4319-8378-10ec674d1975)
+![image](https://github.com/user-attachments/assets/e3e7b835-b188-4861-8a1c-35dd4f1d5499)
+![image](https://github.com/user-attachments/assets/62765a99-738f-43d5-b4c3-267eb47c2bf8)
+
+
+***app.js***
+
+![image](https://github.com/user-attachments/assets/ba4fe0e4-982a-46cc-8950-b95cc4b378b0)
+![image](https://github.com/user-attachments/assets/3fa3b5c0-88f2-425b-bae5-986376d9a148)
+![image](https://github.com/user-attachments/assets/dc82a1b5-06d3-4a8f-9d36-71d617e8863a)
+
+
+![image](https://github.com/user-attachments/assets/06a32fe1-bf75-445e-8d70-e5bd6a5e6011)
+
+***style.css***
+
+![image](https://github.com/user-attachments/assets/1b3e77dc-7389-4c1f-8988-d3f4bb05d3ce)
+![image](https://github.com/user-attachments/assets/9be8750f-0dcc-4be7-a3ce-c58dc33b1477)
+![image](https://github.com/user-attachments/assets/be964384-2773-4977-a6bf-513ea53eb1dc)
+![image](https://github.com/user-attachments/assets/58304883-6f1d-4cff-995a-40b545af3edb)
+![image](https://github.com/user-attachments/assets/e732411f-e2c8-4444-8603-d6bbba99cb9a)
+
+***Hasil Akhir***
+
+![image](https://github.com/user-attachments/assets/8de58b73-c87a-4989-9f69-76d4d85aee6b)
+
+![image](https://github.com/user-attachments/assets/a2338f4d-0aff-48a1-87dc-7a45c8ebdf97)
 
 
 
